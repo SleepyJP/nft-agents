@@ -10,8 +10,7 @@ export const jasmychain = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ["https://rpc.jasmyscan.net"],
-      webSocket: ["wss://rpc.jasmyscan.net/ws"],
+      http: ["https://rpc.jasmychain.io"],
     },
   },
   blockExplorers: {
@@ -23,21 +22,20 @@ export const jasmychain = defineChain({
 });
 
 export const CONTRACTS = {
-  AgentNFT: "0x125C881abe899c074788Cf2Ada0C8d9E80A4eA1b",
-  Evolution: "0x6Ef91FeA0eC05479F227E9D1B242947A482ef933",
-  BattleArena: "0xCBeD0aD4bFf282B550A60749a25aFB0D0Cc79a6e",
-  BreedingLab: "0x3E6990a8B516335A4866D70E221BfDB1447D2Ae0",
-  Marketplace: "0xbea587FbbAc47EC4bf3E2779F3ca4c04F1De6E9F",
-  Pokedex: "0x8Eb18940C5FDe7f0bF7a37Ba10eA146964ABceB2",
-  StarterPack: "0x06E7279d9467844967cd310dDac827A69877BcF5",
-  X404PaymentRouter: "0x0b77e3A3498C7c1F6b2c374bc9940C4fF4De0A6b",
+  X404PaymentRouter: "0x0b77e3A3498C7c1F6b2c374bc9940C4fF4De0A6b" as `0x${string}`,
+  AgentNFT: "0x125C881abe899c074788Cf2Ada0C8d9E80A4eA1b" as `0x${string}`,
+  Evolution: "0x6Ef91FeA0eC05479F227E9D1B242947A482ef933" as `0x${string}`,
+  BattleArena: "0xCBeD0aD4bFf282B550A60749a25aFB0D0Cc79a6e" as `0x${string}`,
+  BreedingLab: "0x3E6990a8B516335A4866D70E221BfDB1447D2Ae0" as `0x${string}`,
+  Marketplace: "0xbea587FbbAc47EC4bf3E2779F3ca4c04F1De6E9F" as `0x${string}`,
+  Pokedex: "0x8Eb18940C5FDe7f0bF7a37Ba10eA146964ABceB2" as `0x${string}`,
+  StarterPack: "0x06E7279d9467844967cd310dDac827A69877BcF5" as `0x${string}`,
 } as const;
 
-// Treasury and canister IDs set via env or post-deploy config
-export const TREASURY = (process.env.NEXT_PUBLIC_TREASURY || "") as `0x${string}`;
+export const TREASURY = "0x49bBEFa1d94702C0e9a5EAdDEc7c3C5D3eb9086B" as `0x${string}`;
 
 export const ICP_CANISTERS = {
-  bridge: process.env.NEXT_PUBLIC_ICP_BRIDGE || "",
+  bridge: process.env.NEXT_PUBLIC_ICP_BRIDGE || "j4fnr-yyaaa-aaaad-qhy4q-cai",
   agentNFT: process.env.NEXT_PUBLIC_ICP_AGENT_NFT || "",
   pokedex: process.env.NEXT_PUBLIC_ICP_POKEDEX || "",
   marketplace: process.env.NEXT_PUBLIC_ICP_MARKETPLACE || "",

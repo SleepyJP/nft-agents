@@ -1,0 +1,44 @@
+{
+  "canisters": {
+    "agent_nft": {
+      "type": "motoko",
+      "main": "agent-nft/main.mo"
+    },
+    "agent_runtime": {
+      "type": "motoko",
+      "main": "agent-runtime/main.mo"
+    },
+    "pokedex": {
+      "type": "motoko",
+      "main": "pokedex/main.mo"
+    },
+    "marketplace": {
+      "type": "motoko",
+      "main": "marketplace/main.mo"
+    },
+    "bridge_sync": {
+      "type": "motoko",
+      "main": "bridge-sync/main.mo"
+    },
+    "cycles_manager": {
+      "type": "motoko",
+      "main": "cycles-manager/main.mo"
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": "vessel sources"
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8080",
+      "type": "ephemeral"
+    },
+    "ic": {
+      "providers": ["https://icp0.io"],
+      "type": "persistent"
+    }
+  },
+  "version": 1
+}

@@ -1,0 +1,19 @@
+{
+  "name": "nft-agents",
+  "version": "0.1.0",
+  "description": "Pokémon-style AI Agent NFTs — JasmyChain (680) + ICP",
+  "private": true,
+  "workspaces": [
+    "contracts",
+    "workstation"
+  ],
+  "scripts": {
+    "contracts:compile": "cd contracts && npx hardhat compile",
+    "contracts:test": "cd contracts && npx hardhat test",
+    "contracts:deploy": "cd contracts && npx hardhat run scripts/deploy.js --network jasmychain",
+    "workstation:dev": "cd workstation && npm run dev",
+    "workstation:build": "cd workstation && npm run build"
+  },
+  "author": "SleepyJ",
+  "license": "MIT"
+}

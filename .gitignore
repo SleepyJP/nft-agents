@@ -1,0 +1,47 @@
+node_modules/
+.env
+.env.local
+.env.production
+dist/
+build/
+out/
+.next/
+cache/
+artifacts/
+typechain-types/
+coverage/
+.dfx/
+.vessel/
+target/
+*.wasm
+*.did~
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Hardhat
+contracts/cache/
+contracts/artifacts/
+contracts/deployments/
+
+# Keys - NEVER commit
+*.pem
+*.key
+
+# SENSITIVE — Do NOT push to public repos
+CLAUDE.md
+DEPLOY.md
+research/
+docs/audit-*.md
+docs/architecture.md
+contracts/.env
+contracts/.env.example
+workstation/src/lib/abis.generated.ts
+
+# Lock files with potential version intel
+package-lock.json

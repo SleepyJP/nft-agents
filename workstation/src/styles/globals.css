@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --void-900: #0a0a0a;
+  --void-800: #0d0d0d;
+  --void-700: #111111;
+  --void-600: #1a1a1a;
+  --void-500: #222222;
+  --neon-green: #00ff88;
+  --neon-blue: #00d4ff;
+  --neon-purple: #a855f7;
+  --neon-pink: #ff00aa;
+  --glass-bg: rgba(13, 13, 13, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.06);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--void-900);
+  color: #e0e0e0;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Glassmorphism base */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+.glass-card {
+  background: rgba(13, 13, 13, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Neon glow utilities */
+.neon-glow-green {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3), 0 0 40px rgba(0, 255, 136, 0.1);
+}
+
+.neon-glow-blue {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 0 40px rgba(0, 212, 255, 0.1);
+}
+
+.neon-glow-purple {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3), 0 0 40px rgba(168, 85, 247, 0.1);
+}
+
+.neon-text-green {
+  color: var(--neon-green);
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5), 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+.neon-text-blue {
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5), 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+/* Holographic card effect */
+.holographic {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 170, 0.1),
+    rgba(0, 212, 255, 0.1),
+    rgba(0, 255, 136, 0.1),
+    rgba(168, 85, 247, 0.1),
+    rgba(255, 215, 0, 0.1)
+  );
+  background-size: 400% 400%;
+  animation: holographic 4s ease infinite;
+}
+
+@keyframes holographic {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Shimmer effect for loading states */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--void-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--void-500);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-purple);
+}
+
+/* Element-specific particle backgrounds */
+.bg-particles-fire {
+  background-image: radial-gradient(circle at 20% 80%, rgba(255, 69, 0, 0.15) 0%, transparent 50%),
+                     radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+}
+
+.bg-particles-water {
+  background-image: radial-gradient(circle at 30% 70%, rgba(0, 191, 255, 0.15) 0%, transparent 50%),
+                     radial-gradient(circle at 70% 30%, rgba(0, 139, 139, 0.1) 0%, transparent 50%);
+}
+
+.bg-particles-electric {
+  background-image: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.15) 0%, transparent 40%),
+                     radial-gradient(circle at 20% 80%, rgba(155, 89, 182, 0.1) 0%, transparent 50%);
+}
+
+.bg-particles-psychic {
+  background-image: radial-gradient(circle at 40% 60%, rgba(255, 105, 180, 0.15) 0%, transparent 50%),
+                     radial-gradient(circle at 60% 40%, rgba(75, 0, 130, 0.1) 0%, transparent 50%);
+}
