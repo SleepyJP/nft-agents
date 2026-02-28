@@ -10,7 +10,7 @@ export const jasmychain = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ["https://rpc.jasmychain.io"],
+      http: ["https://rpc.jasmyscan.net"],
     },
   },
   blockExplorers: {

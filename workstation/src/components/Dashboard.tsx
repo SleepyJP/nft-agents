@@ -44,19 +44,107 @@ export default function Dashboard() {
 
   if (!isConnected) {
     return (
-      <div className="flex h-[60vh] flex-col items-center justify-center space-y-6">
-        <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-neon-purple/20 to-neon-blue/20">
-          <span className="font-display text-3xl font-bold text-neon-purple">NA</span>
+      <div className="space-y-8">
+        {/* Hero */}
+        <div className="relative overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br from-neon-purple/5 via-void-800 to-neon-blue/5 p-10 text-center">
+          <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-neon-purple/10 blur-[100px]" />
+          <div className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-neon-blue/10 blur-[100px]" />
+          <div className="relative">
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-neon-purple to-neon-blue shadow-lg shadow-neon-purple/20">
+              <span className="font-display text-2xl font-bold text-white">NA</span>
+            </div>
+            <h1 className="font-display text-3xl font-bold tracking-wider text-white sm:text-4xl">
+              NFT Agents
+            </h1>
+            <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-white/40">
+              Collect, evolve, battle, and breed AI agent NFTs. Plug them into your
+              workstation to put them to work.
+            </p>
+            <div className="mt-6">
+              <ConnectButton />
+            </div>
+          </div>
         </div>
-        <div className="text-center">
-          <h2 className="font-display text-2xl font-bold tracking-wide text-white">
-            Connect Wallet
-          </h2>
-          <p className="mt-2 text-sm text-white/40">
-            Connect your wallet to access the NFT Agents Command Center
-          </p>
+
+        {/* Feature Grid */}
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          {[
+            { icon: "◆", label: "Agent Slots", desc: "Drag-drop your agents into active slots", color: "#a855f7" },
+            { icon: "⚔", label: "Battle Arena", desc: "PvP battles with JASMY staking", color: "#ff4500" },
+            { icon: "⬡", label: "Breeding Lab", desc: "Fuse agents to create hybrids", color: "#00d4ff" },
+            { icon: "◉", label: "Marketplace", desc: "Buy, sell, and auction agents", color: "#00ff88" },
+          ].map((f) => (
+            <div key={f.label} className="glass-card p-5">
+              <div
+                className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl text-lg"
+                style={{ backgroundColor: `${f.color}15`, color: f.color }}
+              >
+                {f.icon}
+              </div>
+              <h3 className="font-display text-sm font-bold tracking-wide text-white">{f.label}</h3>
+              <p className="mt-1 text-xs text-white/30">{f.desc}</p>
+            </div>
+          ))}
         </div>
-        <ConnectButton />
+
+        {/* Starter Agents Preview */}
+        <div>
+          <h3 className="mb-4 font-display text-lg font-semibold tracking-wide text-white/80">
+            Choose Your Starter
+          </h3>
+          <div className="grid grid-cols-3 gap-4">
+            {[
+              { name: "Embertrade", element: "FIRE", desc: "Trading agent — monitors pairs, sends alerts", color: "#FF4500", accent: "#FFD700" },
+              { name: "Aquascan", element: "WATER", desc: "Research agent — summarizes topics, daily reports", color: "#00BFFF", accent: "#008B8B" },
+              { name: "Voltbot", element: "ELECTRIC", desc: "Automation agent — Telegram bots, cron jobs", color: "#FFD700", accent: "#9B59B6" },
+            ].map((s) => (
+              <div
+                key={s.name}
+                className="glass-card group relative overflow-hidden p-5"
+                style={{ borderColor: `${s.color}15` }}
+              >
+                <div
+                  className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full opacity-15 blur-2xl transition-opacity group-hover:opacity-30"
+                  style={{ backgroundColor: s.color }}
+                />
+                <div
+                  className="relative mb-3 flex h-20 items-center justify-center rounded-xl"
+                  style={{ background: `linear-gradient(135deg, ${s.color}10, ${s.accent}10)`, border: `1px solid ${s.color}15` }}
+                >
+                  <span className="font-display text-2xl font-bold opacity-40" style={{ color: s.color }}>
+                    {s.element.charAt(0)}
+                  </span>
+                </div>
+                <h4 className="font-display text-sm font-bold" style={{ color: s.color }}>{s.name}</h4>
+                <span
+                  className="mt-1 inline-block rounded-md px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider"
+                  style={{ backgroundColor: `${s.color}20`, color: s.color }}
+                >
+                  {s.element}
+                </span>
+                <p className="mt-2 text-xs text-white/30">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Stats Preview */}
+        <div className="grid grid-cols-3 gap-4">
+          <div className="glass-card p-5 text-center">
+            <p className="font-display text-2xl font-bold text-neon-purple">
+              {totalSupply ? Number(totalSupply).toLocaleString() : "0"}
+            </p>
+            <p className="mt-1 text-xs text-white/30">Agents Minted</p>
+          </div>
+          <div className="glass-card p-5 text-center">
+            <p className="font-display text-2xl font-bold text-neon-blue">10</p>
+            <p className="mt-1 text-xs text-white/30">Element Types</p>
+          </div>
+          <div className="glass-card p-5 text-center">
+            <p className="font-display text-2xl font-bold text-neon-green">6</p>
+            <p className="mt-1 text-xs text-white/30">Evolution Stages</p>
+          </div>
+        </div>
       </div>
     );
   }

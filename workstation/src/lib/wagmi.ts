@@ -7,7 +7,7 @@ export const config = getDefaultConfig({
   projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_ID || "nft-agents-dev",
   chains: [jasmychain],
   transports: {
-    [jasmychain.id]: http("https://rpc.jasmychain.io"),
+    [jasmychain.id]: http("https://rpc.jasmyscan.net"),
   },
   ssr: true,
 });
